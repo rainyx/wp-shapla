@@ -1,0 +1,16 @@
+/*
+Theme Name: Shapla
+Description: Used to style the TinyMCE editor.
+*/
+
+@import "variables";
+@import "mixins";
+@import "components/normalize";
+@import "components/typography";
+@import "components/elements";
+@import "modules/alignments";
+@import "media/media";
+
+body {
+	margin: 20px 40px;
+}

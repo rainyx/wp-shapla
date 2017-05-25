@@ -1,0 +1,41 @@
+.shapla-row {
+	margin: 0;
+}
+.shapla-row:before,
+.shapla-row:after {
+	content: "";
+	display: table;
+}
+.shapla-row:after {
+	clear: both;
+}
+.shapla-col {
+	box-sizing: border-box;
+	float: left;
+	padding: 0 15px;
+	width: 100%;
+}
+
+.shapla-card {
+	background: #fff none repeat scroll 0 0;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	display: inline-block;
+	min-height: 150px;
+	margin-bottom: 30px;
+	padding: 15px;
+	width: 100%;
+}
+
+.shapla-card:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (min-width: 601px) {
+	.shapla-col.s4 {
+		width: 33.33333%;
+	}
+	.shapla-col.s12 {
+		width: 99.99999%;
+	}
+}

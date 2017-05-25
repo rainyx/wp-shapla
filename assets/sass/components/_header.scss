@@ -1,0 +1,59 @@
+.site-header {
+	background-color: #212A34;
+	color: $color--light_grey;
+
+	a {
+		color: $color--light_grey;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: $color--white;
+		}
+	}
+}
+
+.site-branding {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	display: inline-block;
+	float: left;
+
+	.custom-logo {
+		max-height: 40px;
+		width: auto;
+	}
+}
+
+.site-title {
+	font-size: 30px;
+	line-height: 1.2;
+	margin: 0 0 5px;
+
+	> a {
+		color: $color--light_grey;
+		text-decoration: none;
+		display: block;
+	}
+}
+
+.site-description {
+	margin: 0;
+	font-size: $font-size-small;
+	opacity: 0.8;
+	line-height: 1.2;
+}
+
+// Search form
+.search-toggle {
+	float: right;
+	margin: 15px 0 15px 5px;
+	text-align: center;
+	vertical-align: middle;
+
+	i.fa-search {
+		cursor: pointer;
+		font-size: 16px;
+		padding: 12px;
+	}
+}

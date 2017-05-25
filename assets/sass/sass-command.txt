@@ -1,0 +1,23 @@
+Style: nested -- default
+===============================================================
+sass --watch assets/sass/style.scss:style.css  -r susy
+
+Style: expanded
+-- typical human-made CSS style
+===============================================================
+sass --watch assets/sass/style.scss:style.css  -r susy --style expanded
+sass --watch assets/sass/editor-style.scss:editor-style.css --style expanded
+
+
+Style: compact
+-- Each CSS rule takes up only one line
+===============================================================
+sass --watch assets/sass/style.scss:style.css  -r susy --style compact
+sass --watch assets/sass/editor-style.scss:editor-style.css --style compact
+
+Style: compressed
+-- having no whitespace except that necessary
+to separate selectors and a newline at the end of the file
+=================================================================
+sass --watch assets/sass/style.scss:style.css  -r susy --style compressed
+sass --watch assets/sass/editor-style.scss:editor-style.css --style compressed
