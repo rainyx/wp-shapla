@@ -380,7 +380,9 @@ function shapla_page_content()
 {
 	?>
 		<div class="entry-content">
+
 			<?php
+                shapla_post_meta();
 				the_content();
 
 				wp_link_pages( array(
