@@ -382,7 +382,6 @@ function shapla_page_content()
 		<div class="entry-content">
 
 			<?php
-                shapla_post_meta();
 				the_content();
 
 				wp_link_pages( array(
@@ -451,7 +450,7 @@ function shapla_post_content() {
 			 * @hooked shapla_post_thumbnail - 10
 			 */
 			do_action( 'shapla_post_content_before' );
-
+            shapla_post_meta();
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
 				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'shapla' ), array( 'span' => array( 'class' => array() ) ) ),
