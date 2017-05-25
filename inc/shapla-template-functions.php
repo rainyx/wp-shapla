@@ -275,7 +275,7 @@ function shapla_post_meta() {
 	if ( 'post' === get_post_type() ) {
 
 		if ( $show_author_avatar || $show_author_name ) {
-			
+
 			echo '<div class="byline">';
 
 				if( $show_author_avatar ) {
@@ -368,24 +368,20 @@ if ( ! function_exists( 'rx_shapla_post_meta' ) ) :
 
             if ( $show_author_avatar || $show_author_name ) {
 
-                echo '<div class="byline">';
-
-                if( $show_author_avatar ) {
-                    echo '<div class="vcard">' . get_avatar( get_the_author_meta( 'ID' ), 32 ) . '</div>';
-                }
+                echo '<span class="byline">';
 
                 if( $show_author_name ) {
-                    echo '<div class="label">' . esc_attr( __( 'Posted by ', 'shapla' ) ) . '</div>';
-                    echo '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a>';
+                    echo '<i class="fa fa-user-o"></i> <span class="label">' . esc_attr( __( 'Posted by ', 'shapla' ) ) . '</span>';
+                    echo '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . ($show_author_avatar ? get_avatar( get_the_author_meta( 'ID' ), 32 ) : ''). esc_html( get_the_author() ) . '</a>';
                 }
 
-                echo '</div>';
+                echo '</span>';
             }
 
             if ( $show_date ) {
                 $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
                 if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-                    $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+                    $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
                 }
 
                 $time_string = sprintf( $time_string,
@@ -395,14 +391,14 @@ if ( ! function_exists( 'rx_shapla_post_meta' ) ) :
                     esc_html( get_the_modified_date() )
                 );
 
-                echo '<div class="posted-on"><div class="label">'. esc_html__('Posted on ', 'shapla' ) .'</div><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a></div>';
+                echo '<span class="posted-on"><i class="fa fa-calendar-o"></i> <a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a></span>';
             }
 
             if ( $show_category_list ) {
                 /* translators: used between list items, there is a space after the comma */
                 $categories_list = get_the_category_list( esc_html__( ' ', 'shapla' ) );
                 if ( $categories_list ) {
-                    printf( '<div class="cat-links"><div class="label">'. esc_html__( 'Posted in ', 'shapla' ) .'</div>' . esc_html__( '%1$s', 'shapla' ) . '</div>', $categories_list ); // WPCS: XSS OK.
+                    printf( '<span class="cat-links"><i class="fa fa-folder-o"></i> <span class="label"></span>' . esc_html__( '%1$s', 'shapla' ) . '</span>', $categories_list ); // WPCS: XSS OK.
                 }
             }
 
@@ -410,7 +406,7 @@ if ( ! function_exists( 'rx_shapla_post_meta' ) ) :
                 /* translators: used between list items, there is a space after the comma */
                 $tags_list = get_the_tag_list( '', esc_html__( ', ', 'shapla' ) );
                 if ( $tags_list ) {
-                    printf( '<div class="tags-links"><div class="label">'. esc_html__( 'Tagged ', 'shapla' ) .'</div>' . esc_html__( '%1$s', 'shapla' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+                    printf( '<span class="tags-links"><i class="fa fa-tags"></i> <span class="label"></span>' . esc_html__( '%1$s', 'shapla' ) . '</span>', $tags_list ); // WPCS: XSS OK.
                 }
             }
 
@@ -418,11 +414,11 @@ if ( ! function_exists( 'rx_shapla_post_meta' ) ) :
 
         if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
             if ( $show_comments_link ) {
-                echo '<div class="comments-link">';
-                echo '<div class="label">' . esc_attr( __( 'Comments', 'shapla' ) ) . '</div>';
+                echo '<span class="comments-link">';
+                echo '<span class="label">' . esc_attr( __( 'Comments', 'shapla' ) ) . '</span>';
                 /* translators: %s: post title */
                 comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'shapla' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) );
-                echo '</div>';
+                echo '</span>';
             }
         }
 
@@ -432,11 +428,11 @@ if ( ! function_exists( 'rx_shapla_post_meta' ) ) :
                 esc_html__( 'Edit %s', 'shapla' ),
                 the_title( '<span class="screen-reader-text">"', '"</span>', false )
             ),
-            '<div class="edit-link"><div class="label">',
-            '</div></div>'
+            '<span class="edit-link"><i class="fa fa-pencil-square-o"></i><span class="label">',
+            '</span></span>'
         );
 
-        echo '</div>';
+        echo '</div><hr/>';
     }
 endif;
 
