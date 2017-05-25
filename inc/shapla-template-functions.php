@@ -432,7 +432,7 @@ if ( ! function_exists( 'rx_shapla_post_meta' ) ) :
             '</span></span>'
         );
 
-        echo '</div><hr/>';
+        echo '</div>';
     }
 endif;
 
@@ -540,12 +540,12 @@ function shapla_post_content() {
 			 */
 			do_action( 'shapla_post_content_before' );
             rx_shapla_post_meta();
+            echo '<hr/>';
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
 				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'shapla' ), array( 'span' => array( 'class' => array() ) ) ),
 				the_title( '<span class="screen-reader-text">"', '"</span>', false )
 			) );
-
 			do_action( 'shapla_post_content_after' );
 
 			wp_link_pages( array(
