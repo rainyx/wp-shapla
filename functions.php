@@ -61,3 +61,8 @@ remove_action('wp_head', 'wlwmanifest_link');
 remove_action('wp_head', 'wp_shortlink_wp_head');
 remove_action('wp_head', 'feed_links');
 remove_action('wp_head', 'feed_links_extra');
+
+// 禁用rest
+add_filter('rest_enabled', '_return_false'); add_filter('rest_jsonp_enabled', '_return_false');
+remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
