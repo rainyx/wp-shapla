@@ -40,4 +40,17 @@ if ( is_admin() ) {
 	require get_template_directory() . '/inc/admin/class-shapla-admin.php';
 	require get_template_directory() . '/inc/admin/class-shapla-meta-boxes.php';
 }
-remove_action( 'wp_head', 'wp_resource_hints', 2 );
+
+//移除WordPress头部加载DNS预获取（dns-prefetch）
+function remove_dns_prefetch( $hints, $relation_type ) {
+    if ( 'dns-prefetch' === $relation_type ) {
+        return array_diff( wp_dependencies_unique_hosts(), $hints );
+    }
+
+    return $hints;
+}
+add_filter( 'wp_resource_hints', 'remove_dns_prefetch', 10, 2 );
+
+// 移除emoji表情script
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
