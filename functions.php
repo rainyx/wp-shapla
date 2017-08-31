@@ -40,3 +40,4 @@ if ( is_admin() ) {
 	require get_template_directory() . '/inc/admin/class-shapla-admin.php';
 	require get_template_directory() . '/inc/admin/class-shapla-meta-boxes.php';
 }
+remove_action( 'wp_head', 'wp_resource_hints', 2 );

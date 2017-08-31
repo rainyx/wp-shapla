@@ -242,17 +242,19 @@ class Shapla {
 	 */
 	private function google_fonts_url() {
 
-		$google_fonts = apply_filters( 'shapla_google_font_families', array(
-			'roboto' 		=> 'Roboto:300,400,500,400italic,500italic',
-			'inconsolata' 	=> 'Inconsolata:400',
-		) );
-
-		$query_args = array(
-			'family' => urlencode( implode( '|', $google_fonts ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
-		);
-		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
-		return $fonts_url;
+	    return [];
+	    // TODO YY changed
+//		$google_fonts = apply_filters( 'shapla_google_font_families', array(
+//			'roboto' 		=> 'Roboto:300,400,500,400italic,500italic',
+//			'inconsolata' 	=> 'Inconsolata:400',
+//		) );
+//
+//		$query_args = array(
+//			'family' => urlencode( implode( '|', $google_fonts ) ),
+//			'subset' => urlencode( 'latin,latin-ext' ),
+//		);
+//		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+//		return $fonts_url;
 	}
 }
 
